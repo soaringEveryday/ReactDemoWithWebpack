@@ -31704,7 +31704,7 @@
 
 	var _NewsHeader2 = _interopRequireDefault(_NewsHeader);
 
-	var _NewsItem = __webpack_require__(175);
+	var _NewsItem = __webpack_require__(182);
 
 	var _NewsItem2 = _interopRequireDefault(_NewsItem);
 
@@ -31746,7 +31746,7 @@
 /* 174 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -31757,6 +31757,14 @@
 	var _react = __webpack_require__(2);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	__webpack_require__(175);
+
+	__webpack_require__(179);
+
+	var _logo = __webpack_require__(181);
+
+	var _logo2 = _interopRequireDefault(_logo);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -31776,12 +31784,90 @@
 	    }
 
 	    _createClass(NewsHeader, [{
-	        key: "render",
+	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
-	                "div",
-	                { className: "newsHeader" },
-	                "I am a header"
+	                'div',
+	                { className: 'newsHeader' },
+	                this.getLogo(),
+	                this.getTitle(),
+	                this.getNavigator(),
+	                this.getLogin()
+	            );
+	        }
+	    }, {
+	        key: 'getLogo',
+	        value: function getLogo() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'newsHeader-logo' },
+	                _react2.default.createElement(
+	                    'a',
+	                    { href: 'http://www.qianmi.com/' },
+	                    _react2.default.createElement('img', { src: _logo2.default })
+	                )
+	            );
+	        }
+	    }, {
+	        key: 'getTitle',
+	        value: function getTitle() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'newsHeader-title' },
+	                _react2.default.createElement(
+	                    'a',
+	                    { className: 'newsHeader-textLink', href: 'http://www.qianmi.com/' },
+	                    'Hacker News'
+	                )
+	            );
+	        }
+	    }, {
+	        key: 'getNavigator',
+	        value: function getNavigator() {
+	            var navLinks = [{
+	                name: 'new',
+	                url: 'newest'
+	            }, {
+	                name: 'comments',
+	                url: 'newcomments'
+	            }, {
+	                name: 'show',
+	                url: 'show'
+	            }, {
+	                name: 'ask',
+	                url: 'ask'
+	            }, {
+	                name: 'jobs',
+	                url: 'jobs'
+	            }, {
+	                name: 'submit',
+	                url: 'submit'
+	            }];
+
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'newsHeader-nav' },
+	                navLinks.map(function (navItem) {
+	                    return _react2.default.createElement(
+	                        'a',
+	                        { key: navItem.url, className: 'newsHeader-navLink newsHeader-textLink',
+	                            href: "https://news.ycombinator.com/" + navItem.url },
+	                        navItem.name
+	                    );
+	                })
+	            );
+	        }
+	    }, {
+	        key: 'getLogin',
+	        value: function getLogin() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'newsHeader-login' },
+	                _react2.default.createElement(
+	                    'a',
+	                    { className: 'newsHeader-textLink', href: 'https://news.ycombinator.com/login?goto=news' },
+	                    'login'
+	                )
 	            );
 	        }
 	    }]);
@@ -31793,6 +31879,400 @@
 
 /***/ },
 /* 175 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(176);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(178)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./NewsHeader.css", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./NewsHeader.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 176 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(177)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".newsHeader {\r\n    align-items: center;\r\n    background: #ff6600;\r\n    color: black;\r\n    display: flex;\r\n    font-size: 10pt;\r\n    padding: 2px;\r\n}\r\n\r\n.newsHeader-logo {\r\n    border: 1px solid white;\r\n    flex-basis: 18px;\r\n    height: 18px;\r\n}\r\n\r\n.newsHeader-textLink {\r\n    color: black;\r\n    text-decoration: none;\r\n}\r\n\r\n.newsHeader-title {\r\n    font-weight: bold;\r\n    margin-left: 4px;\r\n}\r\n\r\nnewsHeader-nav {\r\n    flex-grow: 1;\r\n    margin-left: 10px;\r\n}\r\n\r\n.newsHeader-navLink:not(:first-child)::before {\r\n    content: ' | ';\r\n}\r\n\r\n.newsHeader-login {\r\n    margin-right: 5px;\r\n}", ""]);
+
+	// exports
+
+
+/***/ },
+/* 177 */
+/***/ function(module, exports) {
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	// css base code, injected by the css-loader
+	module.exports = function() {
+		var list = [];
+
+		// return the list of modules as css string
+		list.toString = function toString() {
+			var result = [];
+			for(var i = 0; i < this.length; i++) {
+				var item = this[i];
+				if(item[2]) {
+					result.push("@media " + item[2] + "{" + item[1] + "}");
+				} else {
+					result.push(item[1]);
+				}
+			}
+			return result.join("");
+		};
+
+		// import a list of modules into the list
+		list.i = function(modules, mediaQuery) {
+			if(typeof modules === "string")
+				modules = [[null, modules, ""]];
+			var alreadyImportedModules = {};
+			for(var i = 0; i < this.length; i++) {
+				var id = this[i][0];
+				if(typeof id === "number")
+					alreadyImportedModules[id] = true;
+			}
+			for(i = 0; i < modules.length; i++) {
+				var item = modules[i];
+				// skip already imported module
+				// this implementation is not 100% perfect for weird media query combinations
+				//  when a module is imported multiple times with different media queries.
+				//  I hope this will never occur (Hey this way we have smaller bundles)
+				if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+					if(mediaQuery && !item[2]) {
+						item[2] = mediaQuery;
+					} else if(mediaQuery) {
+						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+					}
+					list.push(item);
+				}
+			}
+		};
+		return list;
+	};
+
+
+/***/ },
+/* 178 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	var stylesInDom = {},
+		memoize = function(fn) {
+			var memo;
+			return function () {
+				if (typeof memo === "undefined") memo = fn.apply(this, arguments);
+				return memo;
+			};
+		},
+		isOldIE = memoize(function() {
+			return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
+		}),
+		getHeadElement = memoize(function () {
+			return document.head || document.getElementsByTagName("head")[0];
+		}),
+		singletonElement = null,
+		singletonCounter = 0,
+		styleElementsInsertedAtTop = [];
+
+	module.exports = function(list, options) {
+		if(false) {
+			if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
+		}
+
+		options = options || {};
+		// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+		// tags it will allow on a page
+		if (typeof options.singleton === "undefined") options.singleton = isOldIE();
+
+		// By default, add <style> tags to the bottom of <head>.
+		if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
+
+		var styles = listToStyles(list);
+		addStylesToDom(styles, options);
+
+		return function update(newList) {
+			var mayRemove = [];
+			for(var i = 0; i < styles.length; i++) {
+				var item = styles[i];
+				var domStyle = stylesInDom[item.id];
+				domStyle.refs--;
+				mayRemove.push(domStyle);
+			}
+			if(newList) {
+				var newStyles = listToStyles(newList);
+				addStylesToDom(newStyles, options);
+			}
+			for(var i = 0; i < mayRemove.length; i++) {
+				var domStyle = mayRemove[i];
+				if(domStyle.refs === 0) {
+					for(var j = 0; j < domStyle.parts.length; j++)
+						domStyle.parts[j]();
+					delete stylesInDom[domStyle.id];
+				}
+			}
+		};
+	}
+
+	function addStylesToDom(styles, options) {
+		for(var i = 0; i < styles.length; i++) {
+			var item = styles[i];
+			var domStyle = stylesInDom[item.id];
+			if(domStyle) {
+				domStyle.refs++;
+				for(var j = 0; j < domStyle.parts.length; j++) {
+					domStyle.parts[j](item.parts[j]);
+				}
+				for(; j < item.parts.length; j++) {
+					domStyle.parts.push(addStyle(item.parts[j], options));
+				}
+			} else {
+				var parts = [];
+				for(var j = 0; j < item.parts.length; j++) {
+					parts.push(addStyle(item.parts[j], options));
+				}
+				stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
+			}
+		}
+	}
+
+	function listToStyles(list) {
+		var styles = [];
+		var newStyles = {};
+		for(var i = 0; i < list.length; i++) {
+			var item = list[i];
+			var id = item[0];
+			var css = item[1];
+			var media = item[2];
+			var sourceMap = item[3];
+			var part = {css: css, media: media, sourceMap: sourceMap};
+			if(!newStyles[id])
+				styles.push(newStyles[id] = {id: id, parts: [part]});
+			else
+				newStyles[id].parts.push(part);
+		}
+		return styles;
+	}
+
+	function insertStyleElement(options, styleElement) {
+		var head = getHeadElement();
+		var lastStyleElementInsertedAtTop = styleElementsInsertedAtTop[styleElementsInsertedAtTop.length - 1];
+		if (options.insertAt === "top") {
+			if(!lastStyleElementInsertedAtTop) {
+				head.insertBefore(styleElement, head.firstChild);
+			} else if(lastStyleElementInsertedAtTop.nextSibling) {
+				head.insertBefore(styleElement, lastStyleElementInsertedAtTop.nextSibling);
+			} else {
+				head.appendChild(styleElement);
+			}
+			styleElementsInsertedAtTop.push(styleElement);
+		} else if (options.insertAt === "bottom") {
+			head.appendChild(styleElement);
+		} else {
+			throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
+		}
+	}
+
+	function removeStyleElement(styleElement) {
+		styleElement.parentNode.removeChild(styleElement);
+		var idx = styleElementsInsertedAtTop.indexOf(styleElement);
+		if(idx >= 0) {
+			styleElementsInsertedAtTop.splice(idx, 1);
+		}
+	}
+
+	function createStyleElement(options) {
+		var styleElement = document.createElement("style");
+		styleElement.type = "text/css";
+		insertStyleElement(options, styleElement);
+		return styleElement;
+	}
+
+	function createLinkElement(options) {
+		var linkElement = document.createElement("link");
+		linkElement.rel = "stylesheet";
+		insertStyleElement(options, linkElement);
+		return linkElement;
+	}
+
+	function addStyle(obj, options) {
+		var styleElement, update, remove;
+
+		if (options.singleton) {
+			var styleIndex = singletonCounter++;
+			styleElement = singletonElement || (singletonElement = createStyleElement(options));
+			update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
+			remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
+		} else if(obj.sourceMap &&
+			typeof URL === "function" &&
+			typeof URL.createObjectURL === "function" &&
+			typeof URL.revokeObjectURL === "function" &&
+			typeof Blob === "function" &&
+			typeof btoa === "function") {
+			styleElement = createLinkElement(options);
+			update = updateLink.bind(null, styleElement);
+			remove = function() {
+				removeStyleElement(styleElement);
+				if(styleElement.href)
+					URL.revokeObjectURL(styleElement.href);
+			};
+		} else {
+			styleElement = createStyleElement(options);
+			update = applyToTag.bind(null, styleElement);
+			remove = function() {
+				removeStyleElement(styleElement);
+			};
+		}
+
+		update(obj);
+
+		return function updateStyle(newObj) {
+			if(newObj) {
+				if(newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap)
+					return;
+				update(obj = newObj);
+			} else {
+				remove();
+			}
+		};
+	}
+
+	var replaceText = (function () {
+		var textStore = [];
+
+		return function (index, replacement) {
+			textStore[index] = replacement;
+			return textStore.filter(Boolean).join('\n');
+		};
+	})();
+
+	function applyToSingletonTag(styleElement, index, remove, obj) {
+		var css = remove ? "" : obj.css;
+
+		if (styleElement.styleSheet) {
+			styleElement.styleSheet.cssText = replaceText(index, css);
+		} else {
+			var cssNode = document.createTextNode(css);
+			var childNodes = styleElement.childNodes;
+			if (childNodes[index]) styleElement.removeChild(childNodes[index]);
+			if (childNodes.length) {
+				styleElement.insertBefore(cssNode, childNodes[index]);
+			} else {
+				styleElement.appendChild(cssNode);
+			}
+		}
+	}
+
+	function applyToTag(styleElement, obj) {
+		var css = obj.css;
+		var media = obj.media;
+
+		if(media) {
+			styleElement.setAttribute("media", media)
+		}
+
+		if(styleElement.styleSheet) {
+			styleElement.styleSheet.cssText = css;
+		} else {
+			while(styleElement.firstChild) {
+				styleElement.removeChild(styleElement.firstChild);
+			}
+			styleElement.appendChild(document.createTextNode(css));
+		}
+	}
+
+	function updateLink(linkElement, obj) {
+		var css = obj.css;
+		var sourceMap = obj.sourceMap;
+
+		if(sourceMap) {
+			// http://stackoverflow.com/a/26603875
+			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
+		}
+
+		var blob = new Blob([css], { type: "text/css" });
+
+		var oldSrc = linkElement.href;
+
+		linkElement.href = URL.createObjectURL(blob);
+
+		if(oldSrc)
+			URL.revokeObjectURL(oldSrc);
+	}
+
+
+/***/ },
+/* 179 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(180);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(178)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./app.css", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./app.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 180 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(177)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "body {\r\n    font-family: Verdana, sans-serif;\r\n}", ""]);
+
+	// exports
+
+
+/***/ },
+/* 181 */
+/***/ function(module, exports) {
+
+	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAADhmlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS41LWMwMjEgNzkuMTU1NzcyLCAyMDE0LzAxLzEzLTE5OjQ0OjAwICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1wTU06T3JpZ2luYWxEb2N1bWVudElEPSJ4bXAuZGlkOjM3YzU5OTY4LTk3NmEtNDY4My1hZDJjLTNiY2RmOWIwZjM5NSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDoxRTE4RjlCNzQ0NEYxMUU2OEQwQjk4NzFCNkREMUEyMCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDoxRTE4RjlCNjQ0NEYxMUU2OEQwQjk4NzFCNkREMUEyMCIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgMjAxNCAoTWFjaW50b3NoKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjIyYTNhNjdkLTdiOTAtNGNlNy1hMTUxLWYxZjI5MmYxMWFjZiIgc3RSZWY6ZG9jdW1lbnRJRD0iYWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOjkxYWM5YzdmLThjYzAtMTE3OS1hMjc1LTkzYWFjY2U0ZGI4YiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PkmsYLEAAAUESURBVEhLvZZpTFRXFMf/MzIwIsNiwxZrFYuCDVrTVkyxVCuU2qJom6bWBaVg01QbPij6oalNFTcaPxmrMVJjRRBFK5QBKgXBlUVpNMiu6WJBYAYooDDDMJ6e9+YSnOGNxn7wN7l599y59/zfPecuT0UMniNq8fzf9Pf1obvLKKyn80wzLCmtQFFBMf7+8y6sgx2IXLAAU4KmQePqioa625jK9U9WrxG9nSAJPonmxgbat2cvBXmCdq8C3ToAOpcCKi2rEj1Gqa+tpfRDB4WljNOQns7KxL7dO9HX24ulHy7Hrv2HEegHzJ4H1Gs3Y9HCcNFzlJlhYRgcGJAmIVoUsOnak30ig27W3BDWKF39RMkxoGuVt0ULUcEvuXIURujp7qIifb6wxqIomJa6XdTG8sOBdKq5Xi0seSo0O/hlYdmY7DtJ1MYyRpCTT9euXBYWUWdHOy2LiaZuo1G2Hz54QNu2bpbrElIkDIZOYRHl68tp9VxQYcEF0WLPGMGmhnq6eumisIhyz+bIszhfoBcttllZLBZhjWLmkrrOg+gC6PU5i2yNDiiGdM92+5BarVZRI8rKzCHdOBV5aVzop6PH6F77EHX0EB3LKKJdCe5E5ezyGujVQEXXyoIePIOG5vvCGkVynBStIheVL4VM8iG6BCr6FpT3NejfHHbFMzMV8pPbV0WA7rV2iZGjuEgr1ZG5M4CO04HIffQd5r+7BhqNBpXledD9lYz0NGBpfi+qGzXAI+C9t3iACrAMA6ZBrnIdHHSP8cDAADc4oHjSzHrJA7U/PwR6gMY7wLAVCAvmP1jDNARo3bjOO9g0IAQeQ3Km1QGxG4DsymHo3MfZ/hAobnx3f44HH48WFgqeBoROB8zsyWSWJwOTSVlMQm7iF2to140Rk1AUTPo8AQfP8TgtYOWwSUViREB6KolJuHKSbt0AImLWiRZ7nB7eL4zXoqvUjKE+ThX3UPIvh4/Da+X8SdGQ+rjx8RcaA1T9MQAvT06kA07P0lP6MkR/xm/sa+vk+FZunCftBODAWS1aWtVw5ei5TQR2fA989EWaopiMNENn7Nixn+Jmc5cqLiW2JT8oLfsKSd+fBgtAKxZ40YYlOr4qQKmfgqKjVojRyjxRUCI7W0+B7qDyvTYhaY/R76DIMB86luJGNw+pKECnpbengbZu2S1GOeepgiNs3PgNTfX1pI/fAO1cCVoUCgoYD5rzImj92kQyGPtEzyfzzN80BuMDNDffhWacFVOmTIZ/ACf5GXjuH1F2gpfLylBZcVW+5V1d3bAtdSd+1efjn9ZWvBMVBS9vH5SX/IbS4vN8u8/C/MhIefXebWlBxZXLCH8zAotjl+B4+hGYzbyluKyIj8eMkFCbAGO3LV4LD0fypi1QqdWymNFgQM2N62iqq8OZkyd5v1mgz8uFz0Qf+Pr6IfdMDny8vcHXGaazU7750W00wNPLiz+oghAUHIya6mrh3Yad4MXSEpzKysCdpiZkHP2RD20XxMYtR2F+Htw9JnC+AvmAHuRi5pmRfKjX1dZCzS/o5++H+61t8NDpMC8iAkOWIY6IN1bGrxXebdgJfhC3DGsT1yNk5iuIT0xCZ0cnaq5X4atNKYhZ/D5OZZ7A/sNHsDA6Cob2drS1taGnp0d2quKfWq2Sw/5lYgJcXDS4UFyMkyeOC+8CKYeO9PfbL3FH+3E4V6JGZDKbRM05z3mVAv8Bm+NNeW2q8TAAAAAASUVORK5CYII="
+
+/***/ },
+/* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";

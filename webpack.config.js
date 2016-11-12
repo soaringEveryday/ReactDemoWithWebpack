@@ -8,6 +8,7 @@ module.exports = {
     },
     module: {
         loaders: [
+            //babel
             {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
@@ -16,6 +17,16 @@ module.exports = {
                     presets: ['es2015','react']
                 }
             },
+            //url-loader
+            {
+                test: /\.(png|jpg|gif)$/,
+                loader: 'url-loader?limit=8192' // 这里的 limit=8192 表示用 base64 编码 <= ８K 的图像
+            },
+            //css-loader, style-loader
+            {
+                test: /\.css$/,
+                loader: 'style!css'
+            }
         ]
     }
 };
