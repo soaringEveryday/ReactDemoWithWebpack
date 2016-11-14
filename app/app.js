@@ -9,6 +9,7 @@ class HelloWorld extends React.Component {
             <NewsList/>
         );
     }
+
 }
 
 render(<HelloWorld />, $('#content')[0]);

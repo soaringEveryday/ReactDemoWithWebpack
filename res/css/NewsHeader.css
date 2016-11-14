@@ -3,14 +3,14 @@
     background: #ff6600;
     color: black;
     display: flex;
-    font-size: 10pt;
-    padding: 2px;
+    font-size: 20pt;
+    padding: 5px;
 }
 
 .newsHeader-logo {
     border: 1px solid white;
-    flex-basis: 18px;
-    height: 18px;
+    flex-basis: 36px;
+    height: 36px;
 }
 
 .newsHeader-textLink {
@@ -20,12 +20,12 @@
 
 .newsHeader-title {
     font-weight: bold;
-    margin-left: 4px;
+    margin-left: 9px;
 }
 
 newsHeader-nav {
     flex-grow: 1;
-    margin-left: 10px;
+    margin-left: 20px;
 }
 
 .newsHeader-navLink:not(:first-child)::before {
@@ -33,5 +33,5 @@ newsHeader-nav {
 }
 
 .newsHeader-login {
-    margin-right: 5px;
+    margin-right: 10px;
 }
